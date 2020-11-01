@@ -1,0 +1,32 @@
+{% extends "poll/base.html" %}
+{% load widget_tweaks %}
+
+{% block title %}Results{% endblock %}
+
+{% block main %}
+<div class="row">
+    <div class="col-lg-8 col-lg-offset-2">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Poll Result</h3>
+            </div>
+
+            <div class="panel-body">
+                <!-- <h3>Which language is easier to learn?</h3> -->
+                <h3>{% render_field poll.question %}</h3>
+            </div>
+
+            <ul class="list-group">
+                <li class="list-group-item">{% render_field poll.option_one %} &mdash; <strong>{% render_field poll.option_one_count %}</strong></li>
+                <li class="list-group-item">{% render_field poll.option_two %} &mdash; <strong>{% render_field poll.option_two_count %}</strong></li>
+                <li class="list-group-item">{% render_field poll.option_three %} &mdash; <strong>{% render_field poll.option_three_count %}</strong></li>
+            </ul>
+
+            <div class="panel-footer">
+                Total &mdash; <strong>{{ poll.total }}</strong>
+            </div>
+
+        </div>
+    </div>
+</div>
+{% endblock %}
